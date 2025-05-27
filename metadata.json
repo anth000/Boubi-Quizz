@@ -1,0 +1,5 @@
+{
+  "name": "Mon Espace Quiz",
+  "description": "Une application de QCM d'entraînement pour aider à la préparation d'examens, avec des questionnaires quotidiens et un suivi des résultats.",
+  "requestFramePermissions": []
+}

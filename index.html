@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Espace Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'theme-primary': '#E11D48', // Rose 600
+              'theme-primary-hover': '#BE123C', // Rose 700
+              'theme-secondary': '#FBCFE8', // Rose 200
+              'theme-bg-soft': '#FFF1F2', // Rose 50
+              'theme-card-bg': '#FFFFFF',
+              'theme-text-main': '#334155', // Slate 700
+              'theme-text-light': '#64748B', // Slate 500
+              'theme-accent': '#A855F7', // Purple 500
+              'theme-correct': '#10B981', // Green 500
+              'theme-incorrect': '#EF4444', // Red 500
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'], // Example of a nice sans-serif font
+            },
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.6.1"
+  }
+}
+</script>
+</head>
+<body class="font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
+<link rel="stylesheet" href="index.css">
+<script src="index.tsx" type="module"></script>
