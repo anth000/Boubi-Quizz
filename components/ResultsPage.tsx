@@ -54,13 +54,21 @@ const ResultsPage: React.FC = () => {
   const scorePercentage = (score / questions.length) * 100;
   let feedbackMessage = "";
   if (scorePercentage === 100) {
-    feedbackMessage = "Excellent ! Score parfait ! 🎉";
-  } else if (scorePercentage >= 75) {
-    feedbackMessage = "Très bien ! Continue comme ça ! 💪";
+    feedbackMessage = "Incroyable Boubi ! 100% ! Tu es une véritable championne, mon lapin sexy des îles du sud ! Je suis tellement fier de toi ! 🏆💖🎉"; 
+  } else if (scorePercentage >= 90) {
+    feedbackMessage = "Bravo mon lapin sexy des îles du sud ! C'est un excellent résultat ! Chaque jour tu te rapproches de la victoire ! 💖👍 Très bien ! Continue comme ça ! 💪";
+  } else if (scorePercentage >= 80) {
+    feedbackMessage = "Wouah Boubi ! Quel talent ! Tu es vraiment douée. Fière de toi ! 💪😘";   
+  } else if (scorePercentage >= 70) {
+    feedbackMessage = "Très bien, ma Boubi ! Tu progresses à une vitesse folle ! Continue comme ça, tu es une star ! ✨😊";
+  } else if (scorePercentage >= 60) {
+    feedbackMessage = "Super score Boubi c'est réussi ! Tu es sur la bonne voie ! C'est la note de passage mais je suis sur que t'es capble de mieux ! 💪💖";
   } else if (scorePercentage >= 50) {
-    feedbackMessage = "Pas mal ! Chaque erreur est une leçon. 😊";
+    feedbackMessage = "Pas mal du tout, Boubi ! Chaque bonne réponse est une victoire, et chaque erreur une leçon. On continue ensemble, mon lapin sexy des îles du sud ! 😊💖";
+  } else if (scorePercentage >= 25) { 
+    feedbackMessage = "C'est déjà un bon début ! On analyse les erreurs et on revient plus forte demain ! Tu vas y arriver ! 😉💖"
   } else {
-    feedbackMessage = "Ne te décourage pas ! L'important c'est d'apprendre. 💖";
+    feedbackMessage = "Ne te décourage surtout pas, ma Boubi d'amour ! C'est en s'entraînant qu'on devient plus fort. Je suis là pour toi. Chaque jour est une nouvelle chance ! 💖💖💖";
   }
 
 

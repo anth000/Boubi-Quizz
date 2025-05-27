@@ -11,13 +11,13 @@ const Layout: React.FC = () => {
             Mon Espace Quiz
           </h1>
         </Link>
-        <p className="text-theme-text-light mt-2 text-sm sm:text-base">Prépare-toi pour ton examen avec sérénité et succès !</p>
+        <p className="text-theme-text-light mt-2 text-sm sm:text-base">Prépare-toi pour ton examen de l'ordre avec ton Bibou #Dieux Grec ! Je t'aime et t'es capable d'aller chercher les 100% je crois en toi mon tabarnak. ❤️❤️❤️❤️❤️</p>
       </header>
       <main className="w-full max-w-3xl bg-theme-card-bg p-6 sm:p-8 rounded-xl shadow-xl">
         <Outlet />
       </main>
       <footer className="mt-12 text-center text-xs sm:text-sm text-theme-text-light">
-        <p>&copy; {new Date().getFullYear()} Pour ma formidable copine. Avec tout mon amour ! ❤️</p>
+        <p>&copy; {new Date().getFullYear()} Pour ma formidable copine (mon lapin sexy des îles du sud 😉). Avec tout mon amour ! ❤️ Signé: ton petit tabarnak. 💯💖</p>
       </footer>
     </div>
   );

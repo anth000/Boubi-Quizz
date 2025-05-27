@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="space-y-8">
       <section className="text-center p-6 bg-rose-100 rounded-lg shadow">
-        <h2 className="text-3xl font-semibold text-theme-primary mb-3">Bienvenue !</h2>
+        <h2 className="text-3xl font-semibold text-theme-primary mb-3">Bienvenue BOUBI !</h2>
         <p className="text-theme-text-light text-lg">
           C'est ton espace personnel pour briller. Chaque jour un nouveau défi pour te rapprocher de ton objectif !
         </p>
