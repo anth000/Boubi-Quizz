@@ -1713,7 +1713,254 @@ export const tousLesQuestionnaires: QuizData = {
       reponseCorrecte: OptionKeyEnum.B,
       justification: "12 bits = 4096 niveaux, 16 bits = 65536 : la dynamique de contraste augmente mais la résolution spatiale (matrice) ne change pas. Source : Carlton, Bushong."
     }
+  ],
+  
+    "2025-05-31": [
+    {
+      id: 1,
+      question: "En mode « normal operating mode », la norme IEC 60601-2-33 fixe la limite de SAR (Specific Absorption Rate) corps entier sur 15 minutes à :",
+      options: {
+        A: "1,0 W/kg",
+        B: "2,0 W/kg",
+        C: "4,0 W/kg",
+        D: "8,0 W/kg"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "La limite réglementaire pour le corps entier en mode normal est **2 W/kg**. Le seuil de 4 W/kg (C) correspond au mode « first-level controlled ». A et D sont respectivement trop bas et trop élevés. Source : IEC 60601-2-33 :2022, ACR Manual on MR Safety 2024."
+    },
+    {
+      id: 2,
+      question: "Un patient porte un stimulateur cardiaque MR Conditional limité à 1,5 T et SAR ⩽ 2 W/kg. Vous disposez d’un IRM 3 T. Quelle conduite respecter la norme ACR MR Safety (niveau 1) ?",
+      options: {
+        A: "Procéder en 3 T si la fréquence cardiaque est stable",
+        B: "Refuser l’examen et proposer une autre modalité (CT ou écho)",
+        C: "Scanner à 3 T sans injection mais limiter la SAR à 1 W/kg",
+        D: "Désactiver le mode stimulation avant l’IRM 3 T"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "Un dispositif MR Conditional doit être utilisé **strictement** dans les limites spécifiées (champ magnétique, SAR, gradient). Scanner en 3 T est hors indication ; l’examen doit être reporté ou réalisé dans un IRM 1,5 T. Source : ACR Manual on MR Safety 2024, Medtronic Guidelines Pacemaker 2023."
+    },
+    {
+      id: 3,
+      question: "Après un « quench » involontaire, quelle est la première action du technologue selon les recommandations OTIMROEPMQ ?",
+      options: {
+        A: "Ouvrir immédiatement la porte de zone IV pour faire entrer de l’air frais",
+        B: "Évacuer toutes les personnes de zone IV vers zone III",
+        C: "Relancer la pompe à hélium pour re-pressuriser l’aimant",
+        D: "Couper l’alimentation électrique du gradient"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "La priorité est l’évacuation rapide de zone IV afin d’éviter l’asphyxie par hélium et les brûlures froides. Ouvrir les portes immédiatement (A) peut propager des vapeurs dans le couloir. C et D sont techniques et se font seulement après sécurisation des personnes. Source : IRMER UK 2022, OTIMROEPMQ Procédure d’urgence IRM."
+    },
+    {
+      id: 4,
+      question: "Un artefact de repliement (aliasing) dans le plan phase est observé. La solution la plus « dose-neutre » (sans rallonger le temps d’acquisition) est :",
+      options: {
+        A: "Inverser les axes phase/fréquence",
+        B: "Doubler la matrice dans la direction phase",
+        C: "Ajouter un oversampling (NEX = 2) uniquement en phase",
+        D: "Appliquer la technique de bande de saturation au bord du champ"
+      },
+      reponseCorrecte: OptionKeyEnum.D,
+      justification: "Les bandes de saturation suppriment les signaux indésirables hors FOV sans accroître la durée, contrairement à l’augmentation de matrice (B) ou NEX (C). Inverser les axes (A) déplace souvent l’artefact mais ne le supprime pas. Source : Westbrook C., MRI in Practice 5ᵉ éd., chap. 8."
+    },
+    {
+      id: 5,
+      question: "Quel seuil de DFG (mL/min/1,73 m²) est habituellement retenu pour **contre-indiquer** l’injection de gadolinium linéaire non macrocyclique afin d’éviter la fibrose néphrogénique systémique ?",
+      options: {
+        A: "< 15",
+        B: "< 30",
+        C: "< 45",
+        D: "< 60"
+      },
+      reponseCorrecte: OptionKeyEnum.A,
+      justification: "Les lignes directrices ACR et ESUR déconseillent fortement les gadolinium linéaires si le DFG < 15 mL/min/1,73 m² (stade 5). Entre 15 et 30, l’utilisation est possible sous conditions strictes avec agents macrocycliques. Source : ACR Manual on Contrast Media 2023, ESUR Guidelines v.10."
+    },
+    {
+      id: 6,
+      question: "Concernant la grossesse et l’IRM, quelle affirmation est correcte selon l’ICRP 128 ?",
+      options: {
+        A: "Le champ statique < 3 T ne présente pas de risque tératogène démontré",
+        B: "L’exposition aux gradients acoustiques est sans danger sans protection auditive fœtale",
+        C: "Le contraste gadolinium est recommandé pour améliorer la détection des malformations",
+        D: "Une technologue enceinte doit rester hors de zone III durant tout le 1ᵉʳ trimestre"
+      },
+      reponseCorrecte: OptionKeyEnum.A,
+      justification: "Aucun effet tératogène n’a été démontré sous 3 T. Une protection auditive maternelle est cependant requise (B faux). Le gadolinium traverse le placenta et doit être évité (C). Les travailleurs enceintes peuvent accéder à zone III si les champs ne dépassent pas 0,5 mT (D exagéré). Source : ICRP 128 (2022), Santé Canada DG 5091."
+    },
+    {
+      id: 7,
+      question: "Quel artefact est **le plus aggravé** sur une séquence éco de gradient (GRE) comparé à une spin-echo ?",
+      options: {
+        A: "Aliasing",
+        B: "Susceptibilité magnétique",
+        C: "Effet de chemical shift (décalage chimique)",
+        D: "Ghosting de mouvement cardiaque"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "Les séquences GRE ne compensent pas les inhomogénéités magnétiques, amplifiant les artefacts de susceptibilité (B). Les artefacts A, C, D ne dépendent pas autant du choix GRE vs SE. Source : MRI Artefacts — Radiopaedia.org, IEC TR 62630."
+    },
+    {
+      id: 8,
+      question: "La **b-value** la plus courante pour l’imagerie de diffusion cérébrale standard (ADC) est :",
+      options: {
+        A: "b = 0 s/mm² uniquement",
+        B: "b = 500 s/mm²",
+        C: "b = 1000 s/mm²",
+        D: "b = 2000 s/mm²"
+      },
+      reponseCorrecte: OptionKeyEnum.C,
+      justification: "Le protocole standard utilise b = 0 et b ≈ 1000 s/mm² pour optimiser la sensibilité aux restrictions de diffusion sans dégrader le SNR. Des valeurs 2000 sont réservées à des applications spécialisées. Source : ACR-ASNR-SNIS Practice Parameter for Brain DWI 2022."
+    },
+    {
+      id: 9,
+      question: "Le **niveau d’exposition acoustique** maximal permis sans protection auriculaire sur un scanner 3 T ne doit pas dépasser :",
+      options: {
+        A: "85 dB(A) pondéré sur 8 h",
+        B: "99 dB(A) pondéré sur 15 min",
+        C: "115 dB(A) instantané",
+        D: "140 dB(A) crête"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "Les normes OSHA et IEC limitent à ~99 dB(A)/15 min en l’absence de protection. Les scanners IRM peuvent atteindre > 120 dB(A), donc des bouchons intra-auriculaires sont obligatoires. Source : IEC 60601-2-33 Annexe ZA, OSHA 1910.95."
+    },
+    {
+      id: 10,
+      question: "La séquence **STIR (Short-TI Inversion Recovery)** est préférée à une saturation de graisse chimique pour :",
+      options: {
+        A: "La visualisation d’œdèmes médullaires en présence d’un implant métallique",
+        B: "Réduire le temps d’acquisition par rapport aux T1 classiques",
+        C: "Obtenir un rehaussement du signal graisseux",
+        D: "Différencier le sang oxygéné du sang désoxygéné"
+      },
+      reponseCorrecte: OptionKeyEnum.A,
+      justification: "STIR supprime la graisse indépendamment de l’homogénéité de B0/B1, donc plus robuste autour des métaux que la sat-graisse chimique. Elle rallonge le temps d’acquisition (B faux) et supprime la graisse (C contraire). D concerne l’imagerie BOLD. Source : Westbrook C., MRI in Practice 5ᵉ éd., chap. 11."
+    }
+  ],
+    "2025-06-01": [
+    {
+      id: 1,
+      question: "Selon le Code de sécurité 36 (Santé Canada) et la MQSA, la dose glandulaire moyenne (AGD) maximale par vue en mammographie (épaisseur standard 45 mm) ne doit pas dépasser :",
+      options: {
+        A: "1 mGy",
+        B: "3 mGy",
+        C: "5 mGy",
+        D: "7 mGy"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "Le plafond réglementaire est fixé à 3 mGy par vue pour un appareil numérique ou analogique, afin d’assurer un rapport bénéfice-risque acceptable. Au-delà, le dépistage n’est plus justifiable. Source : Santé Canada – SC-36, MQSA 21 CFR 900."
+    },
+    {
+      id: 2,
+      question: "La force de compression initiale recommandée en mammographie pour un sein d’épaisseur moyenne est :",
+      options: {
+        A: "5 à 9 kg",
+        B: "11 à 18 kg",
+        C: "20 à 25 kg",
+        D: "> 25 kg"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "Les guides SC-36 et EUREF indiquent 11–18 kg (25–40 lb) pour optimiser homogénéité, réduire la dose et limiter l’inconfort. Des forces < 10 kg sont insuffisantes ; > 20 kg accroissent douleur et risque cutané sans réel gain."
+    },
+    {
+      id: 3,
+      question: "En radiographie numérique, un Deviation Index (DI) de **+3** signifie que :",
+      options: {
+        A: "L’EI (Exposure Index) est environ **double** de la valeur cible",
+        B: "L’EI est trois fois plus bas que la cible",
+        C: "L’image est sous-exposée d’un facteur 2",
+        D: "Le détecteur est saturé"
+      },
+      reponseCorrecte: OptionKeyEnum.A,
+      justification: "DI = 10 × log10(EI/EI_target). Un DI = +3 donne EI/EI_target ≈ 10^0,3 ≈ 2 : l’exposition est doublée (risque de sur-dose)."
+    },
+    {
+      id: 4,
+      question: "Pour un faisceau à 80 kVp filtré à 2,5 mm Al, la demi-épaisseur (HVL) attendue est proche de :",
+      options: {
+        A: "1,5 mm Al",
+        B: "2,0 mm Al",
+        C: "3,0 mm Al",
+        D: "5,0 mm Al"
+      },
+      reponseCorrecte: OptionKeyEnum.C,
+      justification: "Les tableaux NIST et IEC montrent qu’à 80 kVp la HVL est ~3 mm Al ; c’est la valeur utilisée pour vérifier la conformité de la filtration inhérente + ajoutée."
+    },
+    {
+      id: 5,
+      question: "Des stries sombres et brillantes reliant deux plombages dentaires sur un CT sont causées principalement par :",
+      options: {
+        A: "Durcissement du faisceau (beam hardening)",
+        B: "Effet de volume partiel",
+        C: "Artefact métallique (photon starvation)",
+        D: "Migration du centre de rotation"
+      },
+      reponseCorrecte: OptionKeyEnum.C,
+      justification: "Les métaux très denses entraînent la famine de photons et la reconstruction génère des stries typiques d’« artefact métallique ». Le beam hardening (A) crée plutôt un voile cuivré homogène."
+    },
+    {
+      id: 6,
+      question: "En salle d’angio-intervention, l’écran suspendu au plafond doit présenter une équivalence plomb minimale de :",
+      options: {
+        A: "0,25 mm Pb",
+        B: "0,50 mm Pb",
+        C: "1,0 mm Pb",
+        D: "2,0 mm Pb"
+      },
+      reponseCorrecte: OptionKeyEnum.C,
+      justification: "Santé Canada SC-35 et IEC 61331 exigent ≥ 1 mm Pb pour les écrans fixes destinés à protéger la tête et le tronc de l’opérateur."
+    },
+    {
+      id: 7,
+      question: "Quel identifiant DICOM contient le **Patient ID** unique d’un examen ?",
+      options: {
+        A: "(0010,0010)",
+        B: "(0010,0020)",
+        C: "(0020,000D)",
+        D: "(0008,1030)"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "Le tag (0010,0020) stocke l’identifiant patient. Les choix A, C, D correspondent respectivement au nom, à l’UID d’étude et à la description."
+    },
+    {
+      id: 8,
+      question: "Quelle **mesure de continuité** est la plus efficace lors d’une panne PACS de plusieurs heures ?",
+      options: {
+        A: "Imprimer systématiquement les images sur film laser",
+        B: "Activer le stockage local redondant (cache disk) des modalités et reporter vers le PACS dès le rétablissement",
+        C: "Reporter tous les examens non urgents",
+        D: "Effacer les listes de travail pour éviter la confusion"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "Les modalités CT/DR conservent localement les études (« local archive ») puis les réexportent ; cela maintient le flux clinique sans film ni annulation massive."
+    },
+    {
+      id: 9,
+      question: "Le débit d’injection iodée recommandé pour une angiographie CT thoracique adulte (PEA) est généralement :",
+      options: {
+        A: "2 mL/s",
+        B: "3 mL/s",
+        C: "4 à 5 mL/s",
+        D: "7 mL/s"
+      },
+      reponseCorrecte: OptionKeyEnum.C,
+      justification: "Les protocoles thorax CTA préconisent 4–5 mL/s (iodine delivery ≈ 1,3–1,7 g I/s) pour une opacification optimale de l’artère pulmonaire."
+    },
+    {
+      id: 10,
+      question: "Quel test **quotidien** de contrôle qualité est exigé pour les systèmes DR selon SC-35 ?",
+      options: {
+        A: "Congruence faisceau/lampe",
+        B: "Image d’un fantôme uniforme pour vérifier uniformité et artefacts",
+        C: "Mesure de linéarité mAs",
+        D: "Mesure de résolution limite MTF"
+      },
+      reponseCorrecte: OptionKeyEnum.B,
+      justification: "Le test quotidien consiste en une exposition d’un fantôme homogène afin de détecter artefacts, pixels morts et dérives d’uniformité avant la clinique. Les autres essais sont hebdo, mensuels ou annuels."
+    }
   ]
+
+
 
 
 

@@ -9,9 +9,10 @@ const HomePage: React.FC = () => {
   const today = getCurrentDateFormatted();
   const quizForToday = tousLesQuestionnaires[today];
 
+  const now = new Date(today + 'T00:00:00');
   const pastQuizDates = Object.keys(tousLesQuestionnaires)
-    .filter(date => date !== today)
-    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime()); // Sort newest first
+  .filter(date => new Date(date) < now)
+  .sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
 
   return (
     <div className="space-y-8">
