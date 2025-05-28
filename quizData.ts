@@ -9,7 +9,369 @@ const fixedTodayDate = new Date().toISOString().split('T')[0]; //"2024-07-28";
 //const fixedYesterdayDate = "2024-07-27";
 
 export const tousLesQuestionnaires: QuizData = {
-  [fixedTodayDate]: [
+  "Karine": [
+  {
+    id: 1,
+    question: "Quelle interaction photon-matière est la plus probable dans les tissus mous à 70 kVp?",
+    options: {
+      A: "Effet photoélectrique",
+      B: "Effet Compton",
+      C: "Production de paire",
+      D: "Diffusion cohérente"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "À 70 kVp, l'effet Compton prédomine dans les tissus mous car il devient l'interaction principale au-delà de 30 kVp. Source : Bushberg J., The Essential Physics of Medical Imaging."
+  },
+  {
+    id: 2,
+    question: "Que provoque une augmentation du kVp en conservant le mAs constant?",
+    options: {
+      A: "Augmentation du contraste",
+      B: "Réduction de la dose au patient",
+      C: "Augmentation du bruit",
+      D: "Réduction de la pénétration du faisceau"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "L’augmentation du kVp, à mAs constant, améliore la pénétration et permet généralement de réduire la dose au patient si la qualité d'image reste acceptable. Source : European Guidelines on Diagnostic Reference Levels for Paediatric Imaging, Bushong S.C."
+  },
+  {
+    id: 3,
+    question: "À quoi sert l’effet d’anode talon (heel effect)?",
+    options: {
+      A: "Réduire la distorsion",
+      B: "Compenser l’inclinaison de la grille",
+      C: "Répartir l’intensité du faisceau selon l’anatomie",
+      D: "Augmenter la netteté de l’image"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "L'effet talon de l’anode produit une intensité de faisceau plus forte du côté cathodique, permettant d’adapter l’exposition à l’épaisseur anatomique. Source : Bushong S.C., Radiologic Science for Technologists."
+  },
+  {
+    id: 4,
+    question: "Quel paramètre influence directement la résolution spatiale en radiographie numérique?",
+    options: {
+      A: "Le mAs",
+      B: "Le kVp",
+      C: "La taille du pixel",
+      D: "Le temps d’exposition"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Plus le pixel est petit, meilleure est la résolution spatiale de l'image numérique. Source : Bushberg J., The Essential Physics of Medical Imaging."
+  },
+  {
+    id: 5,
+    question: "En cas d’utilisation incorrecte de la grille, quel artefact peut apparaître?",
+    options: {
+      A: "Moiré",
+      B: "Aliasing",
+      C: "Halo",
+      D: "Ligne sombre"
+    },
+    reponseCorrecte: OptionKeyEnum.A,
+    justification: "Une mauvaise utilisation de la grille peut causer un artefact de moiré (aliasing) lors du recadrage numérique. Source : Optimisation des images médicales, INESSS."
+  },
+  {
+    id: 6,
+    question: "Pourquoi utilise-t-on un faisceau collimaté?",
+    options: {
+      A: "Augmenter la dose au patient",
+      B: "Réduire le contraste",
+      C: "Réduire le rayonnement diffusé",
+      D: "Uniformiser le champ"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Le faisceau collimaté limite le champ irradié et réduit le rayonnement diffusé, protégeant le patient et le personnel. Source : CNESST, Santé Canada."
+  },
+  {
+    id: 7,
+    question: "En tomodensitométrie, quelle unité mesure l’atténuation des tissus?",
+    options: {
+      A: "Gray",
+      B: "Bq",
+      C: "Hounsfield",
+      D: "Roentgen"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "L’unité Hounsfield (UH) mesure l’atténuation des tissus en scanner. Source : Optimisation de la dose en CT, otimroepmq.ca."
+  },
+  {
+    id: 8,
+    question: "Que se passe-t-il si la grille est utilisée à l’envers?",
+    options: {
+      A: "Aucun effet",
+      B: "Surexposition au centre de l’image",
+      C: "Sous-exposition sur les bords de l’image",
+      D: "Image floue"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Une grille inversée produit une atténuation excessive sur les bords, créant un effet de sous-exposition latérale. Source : Optimisation des images médicales, INESSS."
+  },
+  {
+    id: 9,
+    question: "Quelle structure anatomique est mieux vue en incidence lordotique thoracique?",
+    options: {
+      A: "Les bases pulmonaires",
+      B: "Les apex pulmonaires",
+      C: "La trachée",
+      D: "Le médiastin"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "L’incidence lordotique dégage les apex pulmonaires, les rendant mieux visibles. Source : Manuel de radiologie, Brossard, SFR."
+  },
+  {
+    id: 10,
+    question: "Quel examen expose le plus le patient en dose efficace moyenne?",
+    options: {
+      A: "Radiographie de la colonne cervicale",
+      B: "Radiographie pulmonaire PA",
+      C: "Tomodensitométrie abdomino-pelvienne",
+      D: "Panoramique dentaire"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Le scanner abdomino-pelvien délivre la dose efficace la plus élevée parmi les examens cités. Source : Santé Canada, Guide de radioprotection médicale."
+  },
+  {
+    id: 11,
+    question: "Quelle est la limite annuelle de dose efficace pour un travailleur exposé selon le SCFR?",
+    options: {
+      A: "10 mSv",
+      B: "20 mSv",
+      C: "50 mSv",
+      D: "100 mSv"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "La limite annuelle réglementaire au Canada est de 20 mSv pour un travailleur exposé. Source : Règlement sur la radioprotection, SCFR."
+  },
+  {
+    id: 12,
+    question: "À quoi sert un filtre de cuivre dans certaines procédures fluoroscopiques?",
+    options: {
+      A: "Réduire le contraste",
+      B: "Réduire la dose de peau",
+      C: "Améliorer la résolution spatiale",
+      D: "Protéger le tube"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "Un filtre de cuivre élimine les photons de faible énergie, réduisant ainsi la dose cutanée. Source : Bushberg J., The Essential Physics of Medical Imaging."
+  },
+  {
+    id: 13,
+    question: "Quel paramètre affecte directement le contraste en radiographie numérique?",
+    options: {
+      A: "DQE",
+      B: "LUT",
+      C: "Pixel pitch",
+      D: "DAP"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "Le LUT (Look-Up Table) permet de modifier le contraste des images numériques. Source : Carlton R.R., Principles of Radiographic Imaging."
+  },
+  {
+    id: 14,
+    question: "Que signifie une valeur EI (Exposure Index) trop basse?",
+    options: {
+      A: "Image sur-exposée",
+      B: "Image sous-exposée",
+      C: "Mauvais positionnement",
+      D: "Saturation du détecteur"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "Un EI bas indique généralement une sous-exposition de l’image, donc une image bruitée. Source : IAEA Human Health Series No. 21."
+  },
+  {
+    id: 15,
+    question: "Quel est l’effet d’un grand OID (distance objet-image)?",
+    options: {
+      A: "Réduit la distorsion",
+      B: "Réduit le flou géométrique",
+      C: "Augmente la magnification",
+      D: "Augmente la pénétration du faisceau"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Un grand OID (distance objet-détecteur) augmente la magnification de l'image. Source : Bushberg J., The Essential Physics of Medical Imaging."
+  },
+  {
+    id: 16,
+    question: "Dans une radiographie thoracique PA, comment vérifier l’absence de rotation?",
+    options: {
+      A: "Évaluer la symétrie des côtes",
+      B: "Vérifier le centrage du cœur",
+      C: "Observer la symétrie des clavicules par rapport aux apophyses épineuses",
+      D: "Observer les omoplates"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "L’alignement des clavicules par rapport à l’apophyse épineuse centrale permet de juger de l’absence de rotation. Source : Manuel de radiologie, SFR."
+  },
+  {
+    id: 17,
+    question: "En DR, quel composant convertit les rayons X en lumière visible?",
+    options: {
+      A: "Photocathode",
+      B: "Scintillateur",
+      C: "Détecteur amorphe",
+      D: "Grille"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "Le scintillateur convertit les rayons X en lumière visible en DR indirecte. Source : Bushberg J., The Essential Physics of Medical Imaging."
+  },
+  {
+    id: 18,
+    question: "Quel risque est associé à un temps de scopie prolongé?",
+    options: {
+      A: "Artéfact de moiré",
+      B: "Artefact thermique",
+      C: "Augmentation de la dose au patient",
+      D: "Pénétration trop faible"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Un temps de scopie long augmente significativement la dose reçue par le patient. Source : CNESST, Guide de radioprotection."
+  },
+  {
+    id: 19,
+    question: "Quelle technique réduit le plus le flou de mouvement volontaire?",
+    options: {
+      A: "Réduction du mAs",
+      B: "Diminution du kVp",
+      C: "Utilisation de temps d’exposition courts",
+      D: "Filtration renforcée"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Le principal moyen de réduire le flou de mouvement est de diminuer la durée d'exposition. Source : Carlton R.R., Principles of Radiographic Imaging."
+  },
+  {
+    id: 20,
+    question: "Quelle est l’action éthique requise si un technologue observe un médecin qui ne respecte pas les normes de radioprotection?",
+    options: {
+      A: "Ne rien faire",
+      B: "Le signaler à l’Ordre",
+      C: "Le confronter publiquement",
+      D: "Contacter directement la RAMQ"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "Le technologue doit signaler les manquements éthiques à l’Ordre, conformément au Code de déontologie. Source : Code de déontologie OTIMROEPMQ."
+  },
+  {
+    id: 21,
+    question: "Quel paramètre détermine principalement la dose au patient en CT?",
+    options: {
+      A: "DLP",
+      B: "kVp",
+      C: "Pitch",
+      D: "mAs"
+    },
+    reponseCorrecte: OptionKeyEnum.A,
+    justification: "Le DLP (Dose Length Product) est le paramètre de base pour estimer la dose totale reçue en scanner. Source : ICRP Publication 135."
+  },
+  {
+    id: 22,
+    question: "En cas d’allergie confirmée à l’iode, que faut-il faire avant un examen avec contraste iodé IV?",
+    options: {
+      A: "Ne rien changer",
+      B: "Administrer une prémédication stéroïdienne",
+      C: "Utiliser un autre agent iodé",
+      D: "Utiliser un agent baryté"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "Une prémédication stéroïdienne est recommandée en cas d'allergie documentée à l’iode, selon les protocoles hospitaliers. Source : INESSS, guide des réactions allergiques."
+  },
+  {
+    id: 23,
+    question: "Quel est le rôle du technologue selon la Loi sur les professions du Québec?",
+    options: {
+      A: "Diagnostiquer",
+      B: "Prescrire des examens",
+      C: "Effectuer des actes techniques autorisés",
+      D: "Surveiller les infirmières"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Le rôle du technologue est d’exécuter des actes techniques selon les paramètres légaux. Source : Loi sur les professions, Québec."
+  },
+  {
+    id: 24,
+    question: "En mammographie, pourquoi utilise-t-on un filtre de molybdène?",
+    options: {
+      A: "Produire un faisceau très énergétique",
+      B: "Améliorer la pénétration",
+      C: "Favoriser le contraste des tissus mous",
+      D: "Réduire la dose de rayonnement secondaire"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Le filtre de molybdène permet d’optimiser le contraste des tissus mous à faible énergie, idéal pour la mammographie. Source : Bushberg J., The Essential Physics of Medical Imaging."
+  },
+  {
+    id: 25,
+    question: "Un artefact circulaire en CT (ring artifact) est généralement causé par :",
+    options: {
+      A: "Un scintillateur défectueux",
+      B: "Une mauvaise injection de contraste",
+      C: "Un détecteur défectueux",
+      D: "Une mauvaise calibration du kVp"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "Un artefact en anneau est caractéristique d’un détecteur défectueux en scanner. Source : Bushong S.C., Radiologic Science for Technologists."
+  },
+  {
+    id: 26,
+    question: "En pédiatrie, quelle mesure est prioritaire pour réduire la dose?",
+    options: {
+      A: "Augmenter le temps d’exposition",
+      B: "Réduire le kVp",
+      C: "Augmenter la distance",
+      D: "Adapter les paramètres au poids"
+    },
+    reponseCorrecte: OptionKeyEnum.D,
+    justification: "L’adaptation des paramètres techniques au poids de l’enfant est la première mesure à prendre. Source : Image Gently Alliance, guidelines."
+  },
+  {
+    id: 27,
+    question: "Quelle incidence est la plus appropriée pour visualiser l’articulation acromio-claviculaire?",
+    options: {
+      A: "AP épaules",
+      B: "Clavicule oblique",
+      C: "Vue axiale",
+      D: "Vue Zanca"
+    },
+    reponseCorrecte: OptionKeyEnum.D,
+    justification: "La vue Zanca est l’incidence de référence pour l’articulation acromio-claviculaire. Source : SFR, Manuel de radiologie."
+  },
+  {
+    id: 28,
+    question: "Quelle conséquence peut avoir une exposition répétée à de faibles doses de radiation ionisante?",
+    options: {
+      A: "Effet déterministe immédiat",
+      B: "Stérilité réversible",
+      C: "Augmentation du risque de cancer à long terme",
+      D: "Mutation génétique aiguë"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "L’exposition chronique à faible dose augmente le risque de cancer à long terme (effet stochastique). Source : ICRP, OMS."
+  },
+  {
+    id: 29,
+    question: "Quel artefact est fréquent en fluoroscopie chez les patients avec implants métalliques?",
+    options: {
+      A: "Effet blooming",
+      B: "Artefact de durcissement du faisceau",
+      C: "Artefact de moiré",
+      D: "Ligne de trame"
+    },
+    reponseCorrecte: OptionKeyEnum.B,
+    justification: "Les implants métalliques causent un durcissement du faisceau, ce qui entraîne des artefacts. Source : Bushberg J., The Essential Physics of Medical Imaging."
+  },
+  {
+    id: 30,
+    question: "Lors d’un examen abdominal d’urgence, que peut suggérer la présence d’air libre sous le diaphragme?",
+    options: {
+      A: "Infection urinaire",
+      B: "Pneumonie",
+      C: "Perforation d’un organe creux",
+      D: "Hernie hiatale"
+    },
+    reponseCorrecte: OptionKeyEnum.C,
+    justification: "La présence d'air sous le diaphragme est un signe classique de perforation digestive. Source : CNESST, SFR, Urgences radiologiques."
+  }
+],
+  "2025-05-27": [
     {
       id: 1,
       question: "En tomodensitométrie polytrauma adulte, quel ordre de séquences maximise la valeur diagnostique tout en limitant la dose ?",
