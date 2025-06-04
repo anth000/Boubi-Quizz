@@ -13,15 +13,11 @@ const ResultsPage: React.FC = () => {
 
   const [questions, setQuestions] = useState<Question[] | null>(null);
   const [submittedAnswers, setSubmittedAnswers] = useState<UserAnswers | null>(null);
-  const [theme, setTheme] = useState<string>('');
   
   useEffect(() => {
     if (location.state?.questions && location.state?.answers) {
       setQuestions(location.state.questions as Question[]);
       setSubmittedAnswers(location.state.answers as UserAnswers);
-      if (location.state?.theme) {
-        setTheme(location.state.theme as string);
-      }
     } else {
       // If state is lost (e.g. page refresh), redirect or show error
       // For simplicity, redirecting to home. A more robust solution might involve session/local storage.
@@ -82,9 +78,6 @@ const ResultsPage: React.FC = () => {
         <h2 className="text-3xl font-bold text-theme-primary mb-2">
           Résultats du Questionnaire du {formatDisplayDate(quizDate)}
         </h2>
-        {theme && (
-          <p className="text-lg text-theme-text-main mb-2">{theme}</p>
-        )}
         <p className="text-2xl font-semibold text-theme-text-main">
           Votre note: {score} / {questions.length} ({scorePercentage.toFixed(0)}%)
         </p>

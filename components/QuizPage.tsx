@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { tousLesQuestionnaires } from '../quizData';
-import { Question, OptionKey, UserAnswers, QuizEntry } from '../types';
+import { Question, OptionKey, UserAnswers } from '../types';
 import QuestionCard from './QuestionCard';
 import Button from './Button';
 import { formatDisplayDate } from '../utils/dateUtils';
@@ -11,14 +11,11 @@ const QuizPage: React.FC = () => {
   const { quizDate } = useParams<{ quizDate: string }>();
   const navigate = useNavigate();
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [theme, setTheme] = useState<string>('');
   const [currentAnswers, setCurrentAnswers] = useState<UserAnswers>({});
 
   useEffect(() => {
     if (quizDate && tousLesQuestionnaires[quizDate]) {
-      const entry = tousLesQuestionnaires[quizDate];
-      setQuestions(entry.questions);
-      setTheme(entry.theme);
+      setQuestions(tousLesQuestionnaires[quizDate]);
       setCurrentAnswers({}); // Reset answers when quiz changes
     } else {
       // Handle quiz not found, navigate to a 404 page or home
@@ -37,7 +34,7 @@ const QuizPage: React.FC = () => {
     // Could add validation: ensure all questions are answered
     // For now, directly navigate to results
     if (quizDate) {
-      navigate(`/results/${quizDate}`, { state: { answers: currentAnswers, questions, theme } });
+      navigate(`/results/${quizDate}`, { state: { answers: currentAnswers, questions } });
     }
   };
 
@@ -49,10 +46,9 @@ const QuizPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-theme-primary text-center mb-2">
+      <h2 className="text-3xl font-bold text-theme-primary text-center mb-6">
         Questionnaire du {formatDisplayDate(quizDate)}
       </h2>
-      <p className="text-lg text-theme-text-main text-center mb-4">{theme}</p>
       {questions.map((q, index) => (
         <QuestionCard
           key={q.id}
