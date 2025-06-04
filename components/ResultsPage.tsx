@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation, Link, useNavigate } from 'react-router-dom';
 import { Question, UserAnswers, OptionKey } from '../types';
+import { tousLesQuestionnaires } from '../quizData'; // Import for fallback theme
 import ResultItem from './ResultItem';
 import Button from './Button';
 import { formatDisplayDate } from '../utils/dateUtils';
@@ -13,23 +14,33 @@ const ResultsPage: React.FC = () => {
 
   const [questions, setQuestions] = useState<Question[] | null>(null);
   const [submittedAnswers, setSubmittedAnswers] = useState<UserAnswers | null>(null);
+  const [quizTheme, setQuizTheme] = useState<string | undefined>(undefined);
   
   useEffect(() => {
+    let themeFromState: string | undefined = undefined;
     if (location.state?.questions && location.state?.answers) {
       setQuestions(location.state.questions as Question[]);
       setSubmittedAnswers(location.state.answers as UserAnswers);
-    } else {
-      // If state is lost (e.g. page refresh), redirect or show error
-      // For simplicity, redirecting to home. A more robust solution might involve session/local storage.
-      if (quizDate) {
-         // Attempt to load questions if only answers are missing, but this is not ideal without persisted answers
-         // This part is tricky without proper state persistence. The prompt asked for no DB.
-         // We'll rely on location.state for now.
+    if (location.state.theme) {
+        themeFromState = location.state.theme as string;
+        setQuizTheme(themeFromState);
       }
-      // If state is completely lost, user shouldn't be here.
-      // navigate('/');
-      // For now, let's allow it to try and render with what it has, or show error message
     }
+    
+    // Fallback for theme if not in state (e.g., direct navigation/refresh if questions/answers were persisted differently)
+    // Or if state was partially lost but quizDate is valid
+    if (!themeFromState && quizDate && tousLesQuestionnaires[quizDate]?.theme) {
+      setQuizTheme(tousLesQuestionnaires[quizDate].theme);
+    }
+    
+    // If essential data (questions/answers) is missing after trying to load from state
+    if (!location.state?.questions || !location.state?.answers) {
+        // This part can be enhanced if we had persistent storage for answers.
+        // For now, if questions and answers are not in state, we show the error message.
+        // The theme fallback above might still set the theme if quizDate is valid,
+        // but the page will likely render the error message if questions/answers are missing.
+    }
+
   }, [location.state, quizDate, navigate]);
 
   if (!quizDate || !questions || !submittedAnswers) {
@@ -77,6 +88,7 @@ const ResultsPage: React.FC = () => {
       <section className="text-center p-6 bg-rose-100 rounded-lg shadow">
         <h2 className="text-3xl font-bold text-theme-primary mb-2">
           Résultats du Questionnaire du {formatDisplayDate(quizDate)}
+          {quizTheme ? ` - ${quizTheme}` : ''}
         </h2>
         <p className="text-2xl font-semibold text-theme-text-main">
           Votre note: {score} / {questions.length} ({scorePercentage.toFixed(0)}%)

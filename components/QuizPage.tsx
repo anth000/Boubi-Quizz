@@ -11,11 +11,14 @@ const QuizPage: React.FC = () => {
   const { quizDate } = useParams<{ quizDate: string }>();
   const navigate = useNavigate();
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [quizTheme, setQuizTheme] = useState<string | undefined>(undefined);
   const [currentAnswers, setCurrentAnswers] = useState<UserAnswers>({});
 
   useEffect(() => {
     if (quizDate && tousLesQuestionnaires[quizDate]) {
-      setQuestions(tousLesQuestionnaires[quizDate]);
+      const quizDetails = tousLesQuestionnaires[quizDate];
+      setQuestions(quizDetails.questions);
+      setQuizTheme(quizDetails.theme);
       setCurrentAnswers({}); // Reset answers when quiz changes
     } else {
       // Handle quiz not found, navigate to a 404 page or home
@@ -34,7 +37,7 @@ const QuizPage: React.FC = () => {
     // Could add validation: ensure all questions are answered
     // For now, directly navigate to results
     if (quizDate) {
-      navigate(`/results/${quizDate}`, { state: { answers: currentAnswers, questions } });
+      navigate(`/results/${quizDate}`, { state: { answers: currentAnswers, questions, theme: quizTheme } });
     }
   };
 
@@ -48,6 +51,7 @@ const QuizPage: React.FC = () => {
     <div className="space-y-6">
       <h2 className="text-3xl font-bold text-theme-primary text-center mb-6">
         Questionnaire du {formatDisplayDate(quizDate)}
+        {quizTheme ? ` - ${quizTheme}` : ''}
       </h2>
       {questions.map((q, index) => (
         <QuestionCard

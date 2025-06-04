@@ -16,12 +16,12 @@ export interface Question {
 }
 
 export interface Quiz {
-  date: string; // YYYY-MM-DD
   questions: Question[];
+  theme?: string; // Thème optionnel du quiz
 }
 
 export interface QuizData {
-  [date: string]: Question[]; // Key is 'YYYY-MM-DD'
+  [date: string]: Quiz; // La clé est 'YYYY-MM-DD', la valeur est un objet Quiz
 }
 
 export interface UserAnswers {
