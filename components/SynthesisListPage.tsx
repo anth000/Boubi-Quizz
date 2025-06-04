@@ -2,35 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SynthesisButton from './SynthesisButton';
 import Button from './Button';
+import { syntheses } from '../synthesisData';
 
 const SynthesisListPage: React.FC = () => {
-  const syntheses = [
-    {
-      title: "Synthèse Générale",
-      description: "Vue d'ensemble des concepts clés et points importants",
-      path: "/synthesis/general",
-      icon: "📚"
-    },
-    {
-      title: "Points Essentiels",
-      description: "Résumé des éléments cruciaux à retenir",
-      path: "/synthesis/essential",
-      icon: "⭐"
-    },
-    {
-      title: "Formules et Définitions",
-      description: "Compilation des formules et définitions importantes",
-      path: "/synthesis/formulas",
-      icon: "📝"
-    },
-    {
-      title: "Cas Pratiques",
-      description: "Exemples concrets et applications pratiques",
-      path: "/synthesis/practical",
-      icon: "💡"
-    }
-  ];
-
   return (
     <div className="space-y-8">
       <div className="flex justify-start mb-6">
@@ -49,12 +23,12 @@ const SynthesisListPage: React.FC = () => {
       </section>
 
       <div className="grid gap-6 mt-8">
-        {syntheses.map((synthesis, index) => (
+        {Object.values(syntheses).map((synthesis) => (
           <SynthesisButton
-            key={index}
+            key={synthesis.id}
             title={synthesis.title}
             description={synthesis.description}
-            path={synthesis.path}
+            path={`/synthesis/${synthesis.id}`}
             icon={synthesis.icon}
           />
         ))}
