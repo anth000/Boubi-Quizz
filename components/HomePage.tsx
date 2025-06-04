@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
         {quizForToday ? (
           <Link to={`/quiz/${today}`}>
             <Button variant="primary" className="w-full text-lg">
-              Commencer le Questionnaire du {formatDisplayDate(today)}
+              {quizForToday.title}
             </Button>
           </Link>
         ) : (
@@ -48,8 +48,13 @@ const HomePage: React.FC = () => {
           <ul className="space-y-3">
             {pastQuizDates.map(date => (
               <li key={date} className="bg-rose-100 hover:bg-rose-200 transition-colors duration-150 rounded-md shadow-sm">
-                <Link to={`/quiz/${date}`} className="block p-4 text-theme-primary hover:text-theme-primary-hover font-medium">
-                  Questionnaire du {formatDisplayDate(date)}
+                <Link to={`/quiz/${date}`} className="block p-4">
+                  <div className="text-theme-primary hover:text-theme-primary-hover font-medium">
+                    {tousLesQuestionnaires[date].title}
+                  </div>
+                  <div className="text-sm text-theme-text-light mt-1">
+                    {formatDisplayDate(date)}
+                  </div>
                 </Link>
               </li>
             ))}

@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation, Link, useNavigate } from 'react-router-dom';
 import { Question, UserAnswers, OptionKey } from '../types';
 import ResultItem from './ResultItem';
 import Button from './Button';
 import { formatDisplayDate } from '../utils/dateUtils';
+import { tousLesQuestionnaires } from '../quizData';
 
 const ResultsPage: React.FC = () => {
   const { quizDate } = useParams<{ quizDate: string }>();
@@ -13,30 +13,27 @@ const ResultsPage: React.FC = () => {
 
   const [questions, setQuestions] = useState<Question[] | null>(null);
   const [submittedAnswers, setSubmittedAnswers] = useState<UserAnswers | null>(null);
+  const [quizTitle, setQuizTitle] = useState<string>("");
   
   useEffect(() => {
     if (location.state?.questions && location.state?.answers) {
       setQuestions(location.state.questions as Question[]);
       setSubmittedAnswers(location.state.answers as UserAnswers);
-    } else {
-      // If state is lost (e.g. page refresh), redirect or show error
-      // For simplicity, redirecting to home. A more robust solution might involve session/local storage.
       if (quizDate) {
-         // Attempt to load questions if only answers are missing, but this is not ideal without persisted answers
-         // This part is tricky without proper state persistence. The prompt asked for no DB.
-         // We'll rely on location.state for now.
+        setQuizTitle(tousLesQuestionnaires[quizDate].title);
       }
-      // If state is completely lost, user shouldn't be here.
-      // navigate('/');
-      // For now, let's allow it to try and render with what it has, or show error message
+    } else {
+      if (quizDate && tousLesQuestionnaires[quizDate]) {
+        setQuizTitle(tousLesQuestionnaires[quizDate].title);
+      }
     }
-  }, [location.state, quizDate, navigate]);
+  }, [location.state, quizDate]);
 
   if (!quizDate || !questions || !submittedAnswers) {
     return (
       <div className="text-center p-8">
         <p className="text-xl text-theme-text-light mb-4">Impossible d'afficher les résultats.</p>
-        <p className="text-sm text-theme-text-light mb-6">Les données du questionnaire ou vos réponses n'ont pas été trouvées. Cela peut arriver si la page a été rechargée.</p>
+        <p className="text-sm text-theme-text-light mb-6">Les données du questionnaire ou vos réponses n'ont pas été trouvées.</p>
         <Link to="/">
           <Button variant="primary">Retour à l'accueil</Button>
         </Link>
@@ -71,13 +68,15 @@ const ResultsPage: React.FC = () => {
     feedbackMessage = "Ne te décourage surtout pas, ma Boubi d'amour ! C'est en s'entraînant qu'on devient plus fort. Je suis là pour toi. Chaque jour est une nouvelle chance ! 💖💖💖";
   }
 
-
   return (
     <div className="space-y-8">
       <section className="text-center p-6 bg-rose-100 rounded-lg shadow">
         <h2 className="text-3xl font-bold text-theme-primary mb-2">
-          Résultats du Questionnaire du {formatDisplayDate(quizDate)}
+          {quizTitle}
         </h2>
+        <p className="text-lg text-theme-text-light mb-4">
+          {formatDisplayDate(quizDate)}
+        </p>
         <p className="text-2xl font-semibold text-theme-text-main">
           Votre note: {score} / {questions.length} ({scorePercentage.toFixed(0)}%)
         </p>
