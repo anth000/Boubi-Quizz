@@ -9,7 +9,9 @@ const fixedTodayDate = new Date().toISOString().split('T')[0]; //"2024-07-28";
 //const fixedYesterdayDate = "2024-07-27";
 
 export const tousLesQuestionnaires: QuizData = {
-  "2024-01-01": [
+  "2024-01-01": {
+    theme: "Principes de base en radiologie",
+    questions: [
   {
     id: 1,
     question: "Quelle interaction photon-matière est la plus probable dans les tissus mous à 70 kVp?",
@@ -370,9 +372,12 @@ export const tousLesQuestionnaires: QuizData = {
     reponseCorrecte: OptionKeyEnum.C,
     justification: "La présence d'air sous le diaphragme est un signe classique de perforation digestive. Source : CNESST, SFR, Urgences radiologiques."
   }
-],
+  ]
+  },
 
-  "2024-01-02": [
+  "2024-01-02": {
+    theme: "Pratiques professionnelles et législation",
+    questions: [
   {
     id: 1,
     question: "Quelle est la principale méthode pour réduire l’exposition du patient aux rayonnements ionisants lors d’une radiographie ?",
@@ -492,9 +497,11 @@ export const tousLesQuestionnaires: QuizData = {
     },
     reponseCorrecte: OptionKeyEnum.D,
     justification: "Chacune de ces pratiques constitue une infraction à la Loi sur les professions et au Code de déontologie. Source : OTIMROEPMQ, Code des professions, Règlement."
-  }
-],
-  "2024-01-03": [
+  },
+  ],
+  "2024-01-03": {
+    theme: "Techniques et doses en imagerie",
+    questions: [
   {
     id: 1,
     question: "Quelle est la dose efficace maximale annuelle recommandée pour un travailleur en radiologie, selon la CIPR (Commission Internationale de Protection Radiologique)?",
@@ -616,7 +623,9 @@ export const tousLesQuestionnaires: QuizData = {
     justification: "La séquence STIR (ou T2 Fat Sat) est la plus sensible pour l’œdème osseux, grâce à la suppression du signal graisseux. Source : Bushberg, imagerie IRM, SFR."
   }
 ],
-  "2024-01-04": [
+  "2024-01-04": {
+    theme: "Physique des rayons X et qualité d'image",
+    questions: [
   {
     id: 1,
     question: "Quel est le rôle principal du filtre en aluminium dans un tube à rayons X?",
@@ -738,7 +747,9 @@ export const tousLesQuestionnaires: QuizData = {
     justification: "Le molybdène produit un faisceau de faible énergie, optimal pour visualiser le contraste des tissus mammaires. Source : Bushberg, The Essential Physics of Medical Imaging."
   }
 ],
-  "2024-01-05": [
+  "2024-01-05": {
+    theme: "Biologie et protection en radiologie",
+    questions: [
   {
     id: 1,
     question: "Quel est le principal effet biologique des rayons X sur les cellules humaines?",
@@ -859,8 +870,10 @@ export const tousLesQuestionnaires: QuizData = {
     reponseCorrecte: OptionKeyEnum.B,
     justification: "Le scanner (CT) abdomino-pelvien délivre une dose efficace bien supérieure à celle des examens radiographiques conventionnels. Source : Santé Canada, ICRP."
   }
-],  
-"2024-01-06": [
+  ],
+  "2024-01-06": {
+    theme: "Techniques cliniques et sécurité",
+    questions: [
   {
     id: 11,
     question: "Un patient entre à l’urgence avec une douleur aiguë à la cheville après une chute. Quelle incidence radiographique doit être faite en premier?",
@@ -982,7 +995,9 @@ export const tousLesQuestionnaires: QuizData = {
     justification: "L’anode rotative permet de répartir la chaleur sur toute la surface, augmentant la capacité de charge du tube. Source : Bushong, Radiologic Science for Technologists."
   }
 ],
-  "2025-05-26": [
+  "2025-05-26": {
+    theme: "Gestion du patient et procedures d'imagerie",
+    questions: [
     {
       id: 1,
       question: "Un patient de 32 ans, polytraumatisé stable hémodynamiquement, arrive à l’urgence. Trois tomodensitométries sont demandées : cérébrale, thoracique et abdomino-pelvienne. Quelle séquence d’exécution maximise la prise en charge tout en limitant les risques liés au produit de contraste ?",
@@ -1103,8 +1118,11 @@ export const tousLesQuestionnaires: QuizData = {
       reponseCorrecte: OptionKeyEnum.C,
       justification: "Le principe ALADA (As Low As Diagnostically Acceptable) signifie que la dose doit être la plus basse possible tant que la qualité de l’image demeure suffisante pour le diagnostic. Source : otimroepmq.ca."
     }
-  ],
-    "2025-05-27": [
+  ]
+  },
+    "2025-05-27": {
+    theme: "Protocoles CT et radioprotection avancee",
+    questions: [
     {
       id: 1,
       question: "En tomodensitométrie polytrauma adulte, quel ordre de séquences maximise la valeur diagnostique tout en limitant la dose ?",
@@ -1346,8 +1364,11 @@ export const tousLesQuestionnaires: QuizData = {
       justification: "En fluoroscopie, le DAP reflète en temps réel la dose totale délivrée (dose × surface) et est donc l’indicateur privilégié pour la gestion patient ; CTDIvol est propre au CT. Les autres propositions confondent les indices. Source : otimroepmq.ca."
     }
 
-  ],
-    "2025-05-28": [
+  ]
+  },
+  "2025-05-28": {
+    theme: "Radioprotection en fluoroscopie",
+    questions: [
     {
       id: 1,
       question: "Lors d’une fluoroscopie digestive, quel réglage réduit le plus efficacement la dose au patient SANS dégrader significativement la qualité d’image ?",
@@ -1468,8 +1489,11 @@ export const tousLesQuestionnaires: QuizData = {
       reponseCorrecte: OptionKeyEnum.B,
       justification: "Le verrouillage règlementaire nord-américain impose une alarme (ou coupure) toutes les 5 minutes de scopie cumulative pour rappeler la gestion de dose. Les autres valeurs ne sont pas normalisées. Source : 21 CFR 1020.32 (FDA), repris par Santé Canada, OTIMROEPMQ."
     }
-  ],
-    "2025-05-29": [
+  ]
+  },
+  "2025-05-29": {
+    theme: "Sécurité en IRM",
+    questions: [
     {
       id: 1,
       question: "En mode « normal operating mode », la norme IEC 60601-2-33 fixe la limite de SAR (Specific Absorption Rate) corps entier sur 15 minutes à :",
@@ -1590,9 +1614,11 @@ export const tousLesQuestionnaires: QuizData = {
       reponseCorrecte: OptionKeyEnum.A,
       justification: "STIR supprime la graisse indépendamment de l’homogénéité de B0/B1, donc plus robuste autour des métaux que la sat-graisse chimique. Elle rallonge le temps d’acquisition (B faux) et supprime la graisse (C contraire). D concerne l’imagerie BOLD. Source : Westbrook C., MRI in Practice 5ᵉ éd., chap. 11."
     }
-  ],
-
-    "2025-05-30": [
+  ]
+  },
+  "2025-05-30": {
+    theme: "Radioprotection pédiatrique et divers",
+    questions: [
     {
       id: 1,
       question: "En radiographie thoracique pédiatrique, l’ajout d’un filtre de 1 mm Al + 0,2 mm Cu a pour effet principal …",
@@ -1713,9 +1739,11 @@ export const tousLesQuestionnaires: QuizData = {
       reponseCorrecte: OptionKeyEnum.B,
       justification: "12 bits = 4096 niveaux, 16 bits = 65536 : la dynamique de contraste augmente mais la résolution spatiale (matrice) ne change pas. Source : Carlton, Bushong."
     }
-  ],
-  
-    "2025-05-31": [
+  ]
+  },
+  "2025-05-31": {
+    theme: "Sécurité IRM approfondie",
+    questions: [
     {
       id: 1,
       question: "En mode « normal operating mode », la norme IEC 60601-2-33 fixe la limite de SAR (Specific Absorption Rate) corps entier sur 15 minutes à :",
@@ -1836,8 +1864,11 @@ export const tousLesQuestionnaires: QuizData = {
       reponseCorrecte: OptionKeyEnum.A,
       justification: "STIR supprime la graisse indépendamment de l’homogénéité de B0/B1, donc plus robuste autour des métaux que la sat-graisse chimique. Elle rallonge le temps d’acquisition (B faux) et supprime la graisse (C contraire). D concerne l’imagerie BOLD. Source : Westbrook C., MRI in Practice 5ᵉ éd., chap. 11."
     }
-  ],
-    "2025-06-01": [
+  ]
+  },
+  "2025-06-01": {
+    theme: "Qualité en mammographie et CT",
+    questions: [
     {
       id: 1,
       question: "Selon le Code de sécurité 36 (Santé Canada) et la MQSA, la dose glandulaire moyenne (AGD) maximale par vue en mammographie (épaisseur standard 45 mm) ne doit pas dépasser :",
@@ -1959,9 +1990,5 @@ export const tousLesQuestionnaires: QuizData = {
       justification: "Le test quotidien consiste en une exposition d’un fantôme homogène afin de détecter artefacts, pixels morts et dérives d’uniformité avant la clinique. Les autres essais sont hebdo, mensuels ou annuels."
     }
   ]
-
-
-
-
-
+  }
 };
