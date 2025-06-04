@@ -9,7 +9,7 @@ export interface Synthesis {
 export const syntheses: Record<string, Synthesis> = {
   general: {
     id: 'general',
-    title: "Synthèse Générale",
+    title: "SYNTHÈSE DES NORMES GÉNÉRALES – OTIMROEPMQ (Examen Québec)",
     description: "Vue d'ensemble des concepts clés et points importants",
     icon: "📚",
     content: `
@@ -100,6 +100,82 @@ Le technologue :
 - Être capable de reconnaître une situation à risque pour le patient (radioprotection, ordonnance inadéquate, etc.).  
 - Bien comprendre les obligations légales, déontologiques et les principes d'ALARA.  
 - Réviser la documentation à inscrire dans le dossier et les éléments techniques à maîtriser selon les modalités.`
+  },
+  general2: {
+    id: 'general2',
+    title: "SYNTHÈSE EXAMEN – Hémodynamie et Angiographie",
+    description: "Vue d'ensemble des concepts clés et points importants",
+    icon: "📚",
+    content: `
+1. 🏥 Environnement contrôlé et stérile
+Le technologue travaille dans une salle à atmosphère contrôlée (température, humidité, pression positive).
+La salle doit être désinfectée et préparée avec rigueur, incluant l’équipement (champs stériles, seringues, cathéters).
+Le technologue respecte les règles d’asepsie chirurgicale à chaque étape.
+
+📌 À retenir pour l'examen :
+Hygiène des mains stricte, équipements stériles, champs opératoires.
+Toute brèche au champ stérile = retrait + remplacement.
+Le technologue doit vérifier les dates de péremption du matériel stérile.
+
+2. 👩‍⚕️ Rôle du technologue
+Prépare la salle, les instruments, les produits (ex. contrastes iodés, anticoagulants).
+Participe activement à la procédure : aide au positionnement, manipulation de la table, fluoroscopie, etc.
+Maintient la stérilité du champ opératoire.
+Peut manipuler certains dispositifs à usage vasculaire selon autorisation.
+
+📌 Important à l’examen :
+Le technologue ne peut jamais initier un acte médical invasif sans prescription.
+Peut aider au guidage fluoroscopique, à l’installation de sondes ou cathéters sous supervision.
+Il documente l’intervention et les paramètres dosimétriques.
+
+3. ⚠️ Surveillance du patient
+Avant : vérification de l’identité, consentement, préparation cutanée, allergies (iode, latex).
+Pendant : signes vitaux, niveau de conscience, surveillance ECG, saturation, etc.
+Après : contrôle du point de ponction, hémostase, et signes d’hémorragie ou d’ischémie.
+
+📌 À retenir :
+L’observation clinique est continue, le technologue doit savoir alerter sans délai.
+La surveillance post-examen est essentielle, surtout si un agent anticoagulant a été utilisé.
+
+4. 💉 Produits de contraste et médicaments
+Le technologue prépare les produits selon les indications médicales, sans les injecter sauf autorisation.
+Vérifie le produit, la date, le lot, la concentration, et consigne tout au dossier.
+L’injection peut être réalisée par pompe ou manuellement (selon le protocole et les habilitations).
+
+📌 Point examen :
+Vérification obligatoire du bon produit et de son intégrité.
+Surveillance des réactions allergiques : urticaire, hypotension, détresse respiratoire.
+Trousse d’urgence (adrénaline, oxygène, solutés) doit être disponible immédiatement.
+
+5. 🛡️ Radioprotection
+L’environnement de fluoroscopie impose une exposition importante aux rayons X.
+Le technologue porte tablier plombé, lunettes, protège-thyroïde, et dosimètre (à l’extérieur du tablier).
+Doit minimiser le temps d’exposition, utiliser la collimation, et respecter les distances.
+
+📌 Pour l'examen :
+Application du principe ALARA, même en salle d’angio.
+Surveillance des doses délivrées au patient via le système (DLP, CTDI, etc.).
+L’exposition du personnel est documentée par dosimétrie passive.
+
+6. 📋 Traçabilité et documentation
+Doit documenter :
+L'identification du patient.
+Les données techniques : fluoroscopie, dose cumulée, temps d’irradiation.
+Les médicaments ou contrastes utilisés (nom, lot, voie, volume).
+Le nom du médecin responsable et du technologue.
+
+📌 Point important :
+Une fiche complète = protection médico-légale.
+La traçabilité est obligatoire en angiographie : toute dose, toute injection, tout incident est consigné.
+
+✅ Résumé des éléments potentiellement en examen :
+Domaine	Points clés à mémoriser pour l’OTIMROEPMQ
+Environnement stérile	Respect des protocoles d’asepsie, remplacement en cas de brèche
+Rôle du technologue	Participation active, sans excès de rôle médical, manipulation sous ordre
+Surveillance du patient	Signes vitaux + point de ponction = priorité
+Produits de contraste	Vérification rigoureuse + trousse d'urgence à proximité
+Radioprotection	ALARA + port de dosimètre externe au tablier
+Documentation	Identification, doses, médicaments, incidents, équipe présente`
   },
   essential: {
     id: 'essential',
