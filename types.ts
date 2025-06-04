@@ -17,11 +17,17 @@ export interface Question {
 
 export interface Quiz {
   date: string; // YYYY-MM-DD
+  theme: string;
+  questions: Question[];
+}
+
+export interface QuizEntry {
+  theme: string;
   questions: Question[];
 }
 
 export interface QuizData {
-  [date: string]: Question[]; // Key is 'YYYY-MM-DD'
+  [date: string]: QuizEntry; // Key is 'YYYY-MM-DD'
 }
 
 export interface UserAnswers {
