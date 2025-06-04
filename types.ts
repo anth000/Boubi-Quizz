@@ -1,3 +1,4 @@
+
 export enum OptionKeyEnum {
   A = 'A',
   B = 'B',
@@ -15,12 +16,12 @@ export interface Question {
 }
 
 export interface Quiz {
-  title: string;
+  date: string; // YYYY-MM-DD
   questions: Question[];
 }
 
 export interface QuizData {
-  [date: string]: Quiz; // Changed from Question[] to Quiz
+  [date: string]: Question[]; // Key is 'YYYY-MM-DD'
 }
 
 export interface UserAnswers {

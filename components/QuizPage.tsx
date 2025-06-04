@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { tousLesQuestionnaires } from '../quizData';
@@ -11,14 +12,13 @@ const QuizPage: React.FC = () => {
   const navigate = useNavigate();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentAnswers, setCurrentAnswers] = useState<UserAnswers>({});
-  const [quizTitle, setQuizTitle] = useState<string>("");
 
   useEffect(() => {
     if (quizDate && tousLesQuestionnaires[quizDate]) {
-      setQuestions(tousLesQuestionnaires[quizDate].questions);
-      setQuizTitle(tousLesQuestionnaires[quizDate].title);
+      setQuestions(tousLesQuestionnaires[quizDate]);
       setCurrentAnswers({}); // Reset answers when quiz changes
     } else {
+      // Handle quiz not found, navigate to a 404 page or home
       navigate('/');
     }
   }, [quizDate, navigate]);
@@ -31,6 +31,8 @@ const QuizPage: React.FC = () => {
   };
 
   const handleSubmit = () => {
+    // Could add validation: ensure all questions are answered
+    // For now, directly navigate to results
     if (quizDate) {
       navigate(`/results/${quizDate}`, { state: { answers: currentAnswers, questions } });
     }
@@ -44,12 +46,9 @@ const QuizPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-theme-primary text-center mb-2">
-        {quizTitle}
+      <h2 className="text-3xl font-bold text-theme-primary text-center mb-6">
+        Questionnaire du {formatDisplayDate(quizDate)}
       </h2>
-      <p className="text-center text-theme-text-light mb-6">
-        {formatDisplayDate(quizDate)}
-      </p>
       {questions.map((q, index) => (
         <QuestionCard
           key={q.id}
@@ -57,7 +56,7 @@ const QuizPage: React.FC = () => {
           questionNumber={index + 1}
           selectedOption={currentAnswers[q.id]}
           onOptionSelect={handleOptionSelect}
-          isSubmitted={false}
+          isSubmitted={false} // Options are active on this page
         />
       ))}
       <div className="mt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 sm:space-x-4">
