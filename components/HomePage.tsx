@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { tousLesQuestionnaires } from '../quizData';
@@ -11,8 +10,8 @@ const HomePage: React.FC = () => {
 
   const now = new Date(today + 'T00:00:00');
   const pastQuizDates = Object.keys(tousLesQuestionnaires)
-  .filter(date => new Date(date) < now)
-  .sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
+    .filter(date => new Date(date) < now)
+    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
 
   return (
     <div className="space-y-8">
@@ -36,6 +35,14 @@ const HomePage: React.FC = () => {
             Pas de nouveau questionnaire pour aujourd'hui. Reviens plus tard ou consulte les anciens questionnaires !
           </p>
         )}
+      </section>
+
+      <section>
+        <Link to="/synthesis">
+          <Button variant="secondary" className="w-full text-lg mb-6">
+            Accéder aux Synthèses 📚
+          </Button>
+        </Link>
       </section>
 
       {pastQuizDates.length > 0 && (
