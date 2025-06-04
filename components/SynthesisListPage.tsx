@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SynthesisButton from './SynthesisButton';
+import Button from './Button';
 
 const SynthesisListPage: React.FC = () => {
   const syntheses = [
@@ -31,6 +33,14 @@ const SynthesisListPage: React.FC = () => {
 
   return (
     <div className="space-y-8">
+      <div className="flex justify-start mb-6">
+        <Link to="/">
+          <Button variant="ghost">
+            ← Retour à l'accueil
+          </Button>
+        </Link>
+      </div>
+
       <section className="text-center p-6 bg-rose-100 rounded-lg shadow">
         <h2 className="text-3xl font-semibold text-theme-primary mb-3">Synthèses</h2>
         <p className="text-theme-text-light text-lg">

@@ -20,6 +20,11 @@ const HomePage: React.FC = () => {
         <p className="text-theme-text-light text-lg">
           C'est ton espace personnel pour briller. Chaque jour un nouveau défi pour te rapprocher de ton objectif !
         </p>
+        <Link to="/synthesis" className="block mt-4">
+          <Button variant="secondary" className="w-full text-lg">
+            Accéder aux Synthèses 📚
+          </Button>
+        </Link>
       </section>
 
       <section>
@@ -35,14 +40,6 @@ const HomePage: React.FC = () => {
             Pas de nouveau questionnaire pour aujourd'hui. Reviens plus tard ou consulte les anciens questionnaires !
           </p>
         )}
-      </section>
-
-      <section>
-        <Link to="/synthesis">
-          <Button variant="secondary" className="w-full text-lg mb-6">
-            Accéder aux Synthèses 📚
-          </Button>
-        </Link>
       </section>
 
       {pastQuizDates.length > 0 && (
